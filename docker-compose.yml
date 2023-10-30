@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+  db1:
+    image: postgres:16.0-alpine3.18
+    container_name: db1
+    environment:
+     POSTGRES_USER: sasha
+     POSTGRES_PASSWORD: s123
+     POSTGRES_DB: diary
+    expose:
+      - 5432
+    ports:
+     - 5432:5432
+    healthcheck:
+      test:
+        [
+            "CMD-SHELL",
+            "nc -z localhost 5432",
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+    # volumes:SQL
+    #   - db1:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:6.15
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - 15432:80
+    depends_on:
+      - db1
+    # volumes:
+    #   - pgadmin:/var/lib/pgadmin
+  server:
+    build: ./server/
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    environment:
+      - PORT=8080
+      - DB_NAME=diary
+      - DB_USER=sasha
+      - DB_PASSWORD=s123
+      - DB_HOST=db1
+      - DB_PORT=5432
+    depends_on:
+      db1: 
+        condition: service_healthy
+    # env_file:
+    #   - ./server/.env
+
+  client:
+    build: ./client/
+    ports:
+      - 3000:3000
+    depends_on:
+      - server

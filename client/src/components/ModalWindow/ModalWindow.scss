@@ -1,0 +1,134 @@
+.bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 200;
+    height: 100vh;
+    background: rgba($color: #050f28, $alpha: 0.8);
+
+    &.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.modal {
+    position: relative;
+    max-width: 1214px;
+    width: 100%;
+    background: #fff;
+    border-radius: 40px;
+    padding: 45px 60px;
+    &__header {
+    }
+    &__form {
+    }
+
+    &__close {
+        cursor: pointer;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    }
+}
+.header-modal {
+    &__title {
+        color: #000;
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 110%;
+        margin-bottom: 63px;
+    }
+}
+.form {
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 42px;
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    &__label {
+        width: 100%;
+        color: #000;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 110%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__input {
+        border-radius: 4px;
+        background: #f6f6f6;
+        padding: 25px;
+        color: #000;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 110%;
+        width: 100%;
+        border: none;
+        outline: none;
+        margin-bottom: 22px;
+        &.warning {
+            border: 1px solid #ff832a;
+        }
+        &.err {
+            border: 1px solid #ff552a;
+        }
+    }
+
+    &__textarea {
+    }
+
+    &__btn {
+        cursor: pointer;
+        max-width: 533px;
+        width: 100%;
+        color: #fff;
+
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 90%;
+        letter-spacing: 1.08px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 42px 0;
+        border-radius: 65px;
+        background: #050f28;
+    }
+}
+.necessarily {
+    display: none;
+    align-items: center;
+    img {
+        margin-right: 5px;
+    }
+    &__text {
+        color: #ff832a;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 110%;
+    }
+    &.active {
+        display: flex;
+    }
+}
+.error {
+    display: none;
+    color: #ff552a;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 110%;
+    &.active{
+        display: block;
+    }
+}

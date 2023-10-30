@@ -1,0 +1,98 @@
+.content {
+    padding: 80px 40px 100px 40px;
+    border-radius: 80px 80px 0px 0px;
+    background: #f6f6f6;
+    flex: 1 1 100%;
+    @media (max-width: 1024px) {
+        padding: 60px 40px 100px 40px;
+    }
+    @media (max-width: 800px) {
+        padding: 30px 15px 100px 15px;
+    }
+
+    &__header {
+    }
+    &__diary {
+    }
+    &__show-more {
+        cursor: pointer;
+        text-align: center;
+        padding: 40px 0;
+        width: 100%;
+        color:#050f28;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 90%; /* 19.8px */
+        letter-spacing: 1.32px;
+        text-transform: uppercase;
+        text-align: center;
+        border-radius: 50px;
+        margin-bottom: 70px;
+        border: none;
+        background: #fff;
+    }
+    &__navigate{
+        width: 100%;
+    }
+}
+.header-content {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 65px;
+    @media (max-width: 800px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    &__title {
+        max-width: 797px;
+        color: #050f28;
+        font-size: 112px;
+        font-weight: 700;
+        line-height: 90%;
+        @media (max-width: 1024px) {
+            max-width: 527px;
+            font-size: 72px;
+        }
+        @media (max-width: 800px) {
+            max-width: 343px;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+    }
+    &__btns {
+        display: flex;
+        align-items: center;
+    }
+}
+.btns-header-content {
+    &__btn {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        color: #050f28;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 110%;
+        padding: 20px;
+        transition: all 0.3s ease;
+        border-radius: 40px;
+        svg {
+            margin-right: 10px;
+        }
+        &:hover {
+            background: #88a1de;
+            svg path:last-child {
+                stroke: white;
+            }
+        }
+        margin-right: 10px;
+        &:last-child {
+            margin: 0;
+        }
+        @media (max-width: 800px) {
+            font-size: 14px;
+            padding: 10px;
+        }
+    }
+}

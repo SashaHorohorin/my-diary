@@ -1,0 +1,43 @@
+.navigate {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &:last-child{
+            transform: rotate(180deg);
+        }
+        img {
+        }
+    }
+    &__pagination {
+        margin: 0 125px;
+        @media (max-width: 1050px) {
+            margin: 0 20px;
+        }
+        span {
+            cursor: pointer;
+            margin-right: 50px;
+            color:#050f28;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 90%;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            &.active{
+                color: #88A1DE;
+            }
+            &:hover{
+                color: #88A1DE;
+            }
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}
